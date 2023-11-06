@@ -37,10 +37,10 @@ public class Main {
             System.out.println("Please enter some text. When you are done write 'stopp'.");
             text = scan.nextLine();
             if (!Objects.equals(text, "stopp")) {
-                metod.countChars(String.valueOf(text)); // stämmer
-                metod.countWords(String.valueOf(text)); // stämmer
-                metod.countLines(String.valueOf(text)); // stämmer
-                metod.longestWord(String.valueOf(text)); // stämmer
+                metod.countChars(text); // stämmer
+                metod.countWords(text); // stämmer
+                metod.countLines(text); // stämmer
+                metod.longestWord(text); // stämmer
             }
         }
 
@@ -49,5 +49,4 @@ public class Main {
         System.out.println("Texten har " + metod.getLines() + " antal rader.");
         System.out.println("Det längsta ordet i texten är " + metod.getLongestWord() + ".");
     }
-
 }
