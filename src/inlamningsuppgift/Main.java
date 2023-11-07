@@ -4,24 +4,17 @@ import java.util.Objects;
 import java.util.Scanner;
 
 /*Del 2
-❖ Skriv ett program som läser in text ifrån kommandoraden rad för rad tills användaren skriver ordet stop.
-❖ När användaren är klar skriver programmet ut antal tecken och hur många rader som användaren har skrivit, exklusive raden med ordet stop
+❖ Skriv ett program som läser in text ifrån kommandoraden rad för rad tills användaren skriver ordet stopp.
+❖ När användaren är klar skriver programmet ut antal tecken och hur många rader som användaren har skrivit, exklusive raden med ordet stopp
 ❖ Programmet skall bestå av tre klasser:
 ❖ En klass som läser in text och skriver ut resultatet till användaren Mainklass
-❖ En klass som räknar raderna och har koll på antalet tecken Logikklass
+❖ En klass som räknar raderna, orden, tecknen och längsta ordet. Logikklass
 ❖ En testklass
-
 ❖ Kontrollen för att ha koll på om användaren har skrivit ordet stop eller inte får utföras i vilken av klasserna man vill
 ❖ Till programmet skall minst tre Junit-testfall skrivas Testklass
 ❖ Testfallen skall skilja sig märkvärt åt och testa olika delar av programmet
-❖ Vidareutveckla ditt program i del 2 så att programmet även gör följande:
-❖ Skriver ut antal ord (separerade med blanksteg)
-❖ Skriver ut det längsta ordet
 ❖ Kontrollen om användaren har skrivit ordet stop eller inte måste ligga i den andra ”logik-klassen”
-❖ Programmet skall fortfarande bestå av tre klasser:
-❖ En klass som läser in text och skriver ut resultatet till användaren
-❖ En annan klass som: 1 Räknar raderna, antal tecken och antal ord 2 Har koll på det längsta ordet 3 Har koll på om användaren har skrivit ordet stop eller inte
-❖Testklass
+
 */
 public class Main {
 
@@ -33,14 +26,17 @@ public class Main {
         String text = "";
 
         // läa in text tills användaren skriver stopp //flytta kontrollen till logikklassen
-        while (!Objects.equals(text, "stopp")) {
+
+        while (metod.keepGoing(text)) {
             System.out.println("Please enter some text. When you are done write 'stopp'.");
             text = scan.nextLine();
-            if (!Objects.equals(text, "stopp")) {
-                metod.countChars(text); // stämmer
-                metod.countWords(text); // stämmer
-                metod.countLines(text); // stämmer
-                metod.longestWord(text); // stämmer
+
+            if (metod.keepGoing(text)) {
+
+                metod.countChars(text);
+                metod.countWords(text);
+                metod.countLines(text);
+                metod.longestWord(text);
             }
         }
 
@@ -50,3 +46,4 @@ public class Main {
         System.out.println("Det längsta ordet i texten är " + metod.getLongestWord() + ".");
     }
 }
+

@@ -12,31 +12,86 @@ public class Tester {
     //test stop
 
     @Test
-    public void testCountWords(){
+    public void testCountChars() {
         //Arrange
-        Logic countWords = new Logic ();
-        int expected = 2;
+        Logic countChars = new Logic();
+        int expected = 4;
 
         //Act
-        countWords.countWords("Hej hopp");
+        countChars.countChars("hopp");
 
         //Assert
-        assertEquals(expected, countWords.getWords());
+        assertEquals(expected, countChars.getChars());
     }
 
     @Test
-    public void testCountLines(){
+    public void testCountLines() {
         //Arrange
-        Logic countLines = new Logic ();
-        int expected = 2;
+        Logic countLines = new Logic();
+        int expected = 1;
 
         //Act
-        countLines.countLines("Hej hopp \n hur mår du?");
+        countLines.countLines("hej");
 
         //Assert
         assertEquals(expected, countLines.getLines());
     }
 
+    @Test
+    public void testCountLines2() {
+        //Arrange
+        Logic countLines = new Logic();
+        int expected = 3;
+
+        //Act
+        countLines.countLines("hej");
+        countLines.countLines("hej");
+        countLines.countLines("hej");
+
+        //Assert
+        assertEquals(expected, countLines.getLines());
+    }
+
+    @Test
+    public void testLongestWord() {
+        //Arrange
+        Logic longestWord = new Logic();
+        String expected = "hoppsan";
+
+        //Act
+        longestWord.longestWord("Hej hoppsan hej.");
+
+        //Assert
+        assertEquals(expected, longestWord.getLongestWord());
+    }
+
+    @Test
+    public void testKeepGoingContinue() {
+        //Arrange
+        Logic keepGoing = new Logic();
+        boolean expected = true;
+
+        //Act
+        boolean actual = keepGoing.keepGoing("");
+
+        //Assert
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void testKeepGoingStop() {
+        //Arrange
+        Logic keepGoing = new Logic();
+        boolean expected = false;
+
+        //Act
+        boolean actual = keepGoing.keepGoing("stopp");
+
+        //Assert
+        assertEquals(expected, actual);
+
+    }
 
 
 }
