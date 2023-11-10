@@ -4,28 +4,32 @@ import java.util.Objects;
 
 public class Logic {
 
+    //De attribut metoderna sparar i.
     int chars = 0;
     int words = 0;
     int lines = 0;
     String longestWord = "";
 
-
-    public boolean keepGoing(String text) { // måste på något sätt lyssna in texten och avgöra om boolean är true eller false
+    // Metod för att kontrollera om användaren skrivit "stopp".
+    public boolean keepGoing(String text) {
         return !Objects.equals(text, "stopp");
     }
 
-    public void countChars(String text) { // metod som räknar chars
-        chars = chars + (text.replace(" ", "").length());    //sätt att inte räkna mellanslag
+    // metod som räknar chars
+    public void countChars(String text) {
+        chars = chars + (text.replace(" ", "").length()); //exkluderar mellanslag
     }
+
     public int getChars() {
         return chars;
     }
 
-    public void countWords(String text) { //metod som räknar ord
+    // Metod som räknar ord
+    public void countWords(String text) {
         String[] stringArray = text.split("\\s");
         int counter = 0;
         for (int i = 0; i < stringArray.length; i++) {
-            if (stringArray[i].length() != 0) {
+            if (!stringArray[i].isEmpty()) {
                 counter++;
             }
         }
@@ -36,19 +40,27 @@ public class Logic {
         return words;
     }
 
-    public void countLines(String text) { //metod som räknar rader
+    // Metod som räknar rader
+    public void countLines(String text) {
         lines++;
-    }
-    public int getLines() {return lines;}
+    } //hindra att den räknar tomma rader
 
-    public void longestWord(String text) { // metod som hittar längsta ordet
-        String[] stringArray = text.split("\\s");
+    public int getLines() {
+        return lines;
+    }
+
+    // Metod som hittar det längsta ordet
+    public void longestWord(String text) {
+        String[] stringArray = text.split("[\\pP\\s&&[^’]]+");
         for (int i = 0; i < stringArray.length; i++) {
             if (stringArray[i].length() >= longestWord.length())
                 longestWord = stringArray[i];
         }
     }
-    public String getLongestWord() {return longestWord;}
+
+    public String getLongestWord() {
+        return longestWord;
+    }
 }
 
 
