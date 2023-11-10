@@ -1,6 +1,6 @@
 package inlamningsuppgift;
 
-import java.util.Objects;
+
 import java.util.Scanner;
 
 public class Main {
@@ -22,7 +22,7 @@ public class Main {
 
                 metod.countChars(text);
                 metod.countWords(text);
-                metod.countLines(text);
+                metod.countLines();
                 metod.longestWord(text);
             }
         }

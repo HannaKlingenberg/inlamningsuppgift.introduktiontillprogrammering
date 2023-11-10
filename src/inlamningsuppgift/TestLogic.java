@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class Tester {
+public class TestLogic {
 
     @Test
     public void testKeepGoingContinue() {
@@ -58,7 +58,7 @@ public class Tester {
         Logic countLines = new Logic();
         int expected = 1;
         //Act
-        countLines.countLines("hej");
+        countLines.countLines();
         int actual = countLines.getLines();
         //Assert
         assertEquals(expected, actual);
@@ -70,9 +70,9 @@ public class Tester {
         Logic countLines = new Logic();
         int expected = 3;
         //Act
-        countLines.countLines("hej");
-        countLines.countLines("hej");
-        countLines.countLines("hej");
+        countLines.countLines();
+        countLines.countLines();
+        countLines.countLines();
         int actual = countLines.getLines();
         //Assert
         assertEquals(expected, actual);

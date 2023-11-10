@@ -41,7 +41,7 @@ public class Logic {
     }
 
     // Metod som räknar rader
-    public void countLines(String text) {
+    public void countLines() {
         lines++;
     } //hindra att den räknar tomma rader
 
