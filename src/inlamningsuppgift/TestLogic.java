@@ -78,7 +78,6 @@ public class TestLogic {
         assertEquals(expected, actual);
     }
 
-
 }
 
 

@@ -1,6 +1,5 @@
 package inlamningsuppgift;
 
-
 import java.util.Scanner;
 
 public class Main {
@@ -13,6 +12,7 @@ public class Main {
 
         System.out.println("Please enter some text. When you are done write 'stopp'.");
         // Läs in text så länge användaren inte skriver stopp.
+        // få detta att fungera även om "stopp" inte är på egen rad?
         while (metod.keepGoing(text)) {
 
             text = scan.nextLine();

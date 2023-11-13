@@ -26,7 +26,7 @@ public class Logic {
 
     // Metod som räknar ord
     public void countWords(String text) {
-        String[] stringArray = text.split("\\s");
+        String[] stringArray = text.split("\\s"); //splittar upp i array på mellanslagen, ett ord på varje plats, räknar platserna
         int counter = 0;
         for (int i = 0; i < stringArray.length; i++) {
             if (!stringArray[i].isEmpty()) {
@@ -43,7 +43,7 @@ public class Logic {
     // Metod som räknar rader
     public void countLines() {
         lines++;
-    } //hindra att den räknar tomma rader
+    } //hindra att den räknar tomma rader?
 
     public int getLines() {
         return lines;
@@ -51,7 +51,7 @@ public class Logic {
 
     // Metod som hittar det längsta ordet
     public void longestWord(String text) {
-        String[] stringArray = text.split("[\\pP\\s&&[^’]]+");
+        String[] stringArray = text.split("[\\pP\\s&&[^’]]+"); // förhindrar att metoden även räknar skiljetecken
         for (int i = 0; i < stringArray.length; i++) {
             if (stringArray[i].length() >= longestWord.length())
                 longestWord = stringArray[i];
