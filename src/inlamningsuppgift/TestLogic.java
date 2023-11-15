@@ -6,16 +6,6 @@ import static org.junit.Assert.assertEquals;
 
 public class TestLogic {
 
-    @Test
-    public void testKeepGoingContinue() {
-        //Arrange
-        Logic keepGoing = new Logic();
-        boolean expected = true;
-        //Act
-        boolean actual = keepGoing.keepGoing("");
-        //Assert
-        assertEquals(expected, actual);
-    }
 
     @Test
     public void testKeepGoingStop() {
@@ -24,6 +14,17 @@ public class TestLogic {
         boolean expected = false;
         //Act
         boolean actual = keepGoing.keepGoing("stopp");
+        //Assert
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testKeepGoingContinue() {
+        //Arrange
+        Logic keepGoing = new Logic();
+        boolean expected = true;
+        //Act
+        boolean actual = keepGoing.keepGoing("");
         //Assert
         assertEquals(expected, actual);
     }
@@ -40,17 +41,18 @@ public class TestLogic {
         assertEquals(expected, actual);
     }
 
-  /*  @Test
-    public void testLongestWords() {
+    @Test
+    public void testCountWords() {
         //Arrange
-        Logic longestWord = new Logic();
-        String expected = "hoppsan";
+        Logic countWords = new Logic();
+        int expected = 4;
         //Act
-        longestWord.longestWord("Hej hoppsan hej.");
-        String actual = longestWord.getLongestWords();
+        countWords.countWords("hopp, hopp, hopp, hopp");
+        int actual = countWords.getWords();
         //Assert
         assertEquals(expected, actual);
-    }*/
+    }
+
 
     @Test
     public void testCountLines() {
@@ -65,15 +67,13 @@ public class TestLogic {
     }
 
     @Test
-    public void testCountLines2() {
+    public void testLongestWords() {
         //Arrange
-        Logic countLines = new Logic();
-        int expected = 3;
+        Logic longestWord = new Logic();
+        String expected = "hoppsan";
         //Act
-        countLines.countLines();
-        countLines.countLines();
-        countLines.countLines();
-        int actual = countLines.getLines();
+        longestWord.longestWord("Hej hoppsan hej.");
+        String actual = longestWord.getLongestWords().get(0);
         //Assert
         assertEquals(expected, actual);
     }

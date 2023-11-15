@@ -13,8 +13,8 @@ public class Logic {
     ArrayList<String> longestWords = new ArrayList<>();
 
 
-    // metod för att kunna gå igenom text ord för ord för att hitta "stopp" när det inte är på egen rad
-    // och kallar på de andra metoderna
+    // Metod för att kunna gå igenom text ord för ord för att hitta "stopp" även om det inte är på egen rad
+    // anropar på de andra metoderna
     public boolean parseLine(String text) {
         String[] stringArray = text.split("\\s");
         for (int i = 0; i < stringArray.length; i++) {
