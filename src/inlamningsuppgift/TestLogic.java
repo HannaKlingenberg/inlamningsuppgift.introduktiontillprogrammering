@@ -41,13 +41,13 @@ public class TestLogic {
     }
 
     @Test
-    public void testLongestWord() {
+    public void testCountWords() {
         //Arrange
-        Logic longestWord = new Logic();
-        String expected = "hoppsan";
+        Logic countWords = new Logic();
+        int expected = 4;
         //Act
-        longestWord.longestWord("Hej hoppsan hej.");
-        String actual = longestWord.getLongestWord();
+        countWords.countWords("hopp, hopp, hopp, hopp");
+        int actual = countWords.getWords();
         //Assert
         assertEquals(expected, actual);
     }
@@ -65,19 +65,16 @@ public class TestLogic {
     }
 
     @Test
-    public void testCountLines2() {
+    public void testLongestWords() {
         //Arrange
-        Logic countLines = new Logic();
-        int expected = 3;
+        Logic longestWord = new Logic();
+        String expected = "hoppsan";
         //Act
-        countLines.countLines();
-        countLines.countLines();
-        countLines.countLines();
-        int actual = countLines.getLines();
+        longestWord.longestWord("Hej hoppsan hej.");
+        String actual = longestWord.getLongestWords().get(0);
         //Assert
         assertEquals(expected, actual);
     }
-
 }
 
 

@@ -8,29 +8,19 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
         Logic metod = new Logic();
-        String text = "";
+        String text;
 
-        System.out.println("Please enter some text. When you are done write 'stopp'.");
-        // Läs in text så länge användaren inte skriver stopp.
-        // Få detta att fungera även om "stopp" inte är på egen rad?
-        while (metod.keepGoing(text)) {
+        System.out.println("Skriv något, när du vill avsluta skriv 'stopp'.");
 
-            text = scan.nextLine();
-
-            // kalla på metoderna så länge användaren inte skriver stopp.
-            if (metod.keepGoing(text)) {
-
-                metod.countChars(text);
-                metod.countWords(text);
-                metod.countLines();
-                metod.longestWord(text);
-            }
+        do {
+            text = scan.nextLine(); // Läser in en rad.
         }
-        // Skriv ut informationen när alla metoder är färdiga
+        while (metod.parseLine(text)); // Fortsätter tills parseLine returnerar false.
+
+        // Skriver ut resultatet.
         System.out.println("Texten har " + metod.getChars() + " antal tecken.");
         System.out.println("Texten har " + metod.getWords() + " antal ord.");
         System.out.println("Texten har " + metod.getLines() + " antal rader.");
-        System.out.println("Det senaste längsta ordet i texten är " + metod.getLongestWord() + ".");
+        System.out.println("De längsta orden i texten är " + metod.getLongestWords() + ".");
     }
 }
-
