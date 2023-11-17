@@ -10,17 +10,14 @@ public class Main {
         Logic metod = new Logic();
         String text;
 
+        System.out.println("Skriv något, när du vill avsluta skriv 'stopp'.");
 
-        System.out.println("Please enter some text. When you are done write 'stopp'.");
-
-        // Läs in text så länge användaren inte skriver stopp.
         do {
-            text = scan.nextLine();
+            text = scan.nextLine(); // Läser in en rad.
         }
-        while (metod.parseLine(text));
+        while (metod.parseLine(text)); // Fortsätter tills parseLine returnerar false.
 
-
-        // Skriv ut informationen när alla metoder är färdiga
+        // Skriver ut resultatet.
         System.out.println("Texten har " + metod.getChars() + " antal tecken.");
         System.out.println("Texten har " + metod.getWords() + " antal ord.");
         System.out.println("Texten har " + metod.getLines() + " antal rader.");

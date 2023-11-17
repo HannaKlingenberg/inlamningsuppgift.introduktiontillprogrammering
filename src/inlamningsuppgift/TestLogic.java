@@ -6,6 +6,16 @@ import static org.junit.Assert.assertEquals;
 
 public class TestLogic {
 
+    @Test
+    public void testKeepGoingContinue() {
+        //Arrange
+        Logic keepGoing = new Logic();
+        boolean expected = true;
+        //Act
+        boolean actual = keepGoing.keepGoing("");
+        //Assert
+        assertEquals(expected, actual);
+    }
 
     @Test
     public void testKeepGoingStop() {
@@ -14,17 +24,6 @@ public class TestLogic {
         boolean expected = false;
         //Act
         boolean actual = keepGoing.keepGoing("stopp");
-        //Assert
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testKeepGoingContinue() {
-        //Arrange
-        Logic keepGoing = new Logic();
-        boolean expected = true;
-        //Act
-        boolean actual = keepGoing.keepGoing("");
         //Assert
         assertEquals(expected, actual);
     }
@@ -53,7 +52,6 @@ public class TestLogic {
         assertEquals(expected, actual);
     }
 
-
     @Test
     public void testCountLines() {
         //Arrange
@@ -77,7 +75,6 @@ public class TestLogic {
         //Assert
         assertEquals(expected, actual);
     }
-
 }
 
 
